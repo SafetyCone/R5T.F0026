@@ -7,7 +7,7 @@ namespace R5T.F0026
 	{
 		#region Infrastructure
 
-	    public static ExecutableFileRelativePathOperator Instance { get; } = new();
+	    public static IExecutableFileRelativePathOperator Instance { get; } = new ExecutableFileRelativePathOperator();
 
 	    private ExecutableFileRelativePathOperator()
 	    {
