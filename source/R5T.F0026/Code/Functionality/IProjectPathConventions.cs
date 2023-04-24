@@ -73,7 +73,7 @@ namespace R5T.F0026
             // In case the project name is not conventional based on the output assembly file name.
             string executableProjectName)
         {
-            var executableAssemblyFilePath = F0000.ExecutablePathOperator.Instance.GetExecutableFilePath();
+            var executableAssemblyFilePath = F0000.ExecutablePathOperator.Instance.Get_ExecutableFilePath();
 
             var executableProjectFilePath = this.GetProjectFilePath(
                 executableAssemblyFilePath,
@@ -85,7 +85,7 @@ namespace R5T.F0026
         public string GetExecutableSiblingProjectFilePath(
             string siblingProjectName)
         {
-            var executableAssemblyFilePath = F0000.ExecutablePathOperator.Instance.GetExecutableFilePath();
+            var executableAssemblyFilePath = F0000.ExecutablePathOperator.Instance.Get_ExecutableFilePath();
 
             var executableSiblingProjectFilePath = this.GetSiblingProjectFilePath(
                 executableAssemblyFilePath,
