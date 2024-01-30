@@ -10,7 +10,7 @@ namespace R5T.F0026
     {
         public string GetOutputAssembliesDirectoryPath(string outputAssemblyFilePath)
         {
-            var outputAssembliesDirectoryPath = F0000.PathOperator.Instance.GetFileParentDirectoryPath(outputAssemblyFilePath);
+            var outputAssembliesDirectoryPath = F0000.PathOperator.Instance.Get_ParentDirectoryPath_ForFile(outputAssemblyFilePath);
             return outputAssembliesDirectoryPath;
         }
 
@@ -18,7 +18,7 @@ namespace R5T.F0026
         {
             var outputAssembliesDirectoryPath = this.GetOutputAssembliesDirectoryPath(outputAssemblyFilePath);
 
-            var projectDirectoryPath = F0002.PathOperator.Instance.GetDirectoryPath(
+            var projectDirectoryPath = F0002.PathOperator.Instance.Get_DirectoryPath(
                 outputAssembliesDirectoryPath,
                 OutputAssembliesDirectoryRelativeDirectoryPaths.Instance.ProjectDirectory);
             
@@ -29,7 +29,7 @@ namespace R5T.F0026
         {
             var outputAssembliesDirectoryPath = this.GetOutputAssembliesDirectoryPath(outputAssemblyFilePath);
 
-            var solutionDirectoryPath = F0002.PathOperator.Instance.GetDirectoryPath(
+            var solutionDirectoryPath = F0002.PathOperator.Instance.Get_DirectoryPath(
                 outputAssembliesDirectoryPath,
                 OutputAssembliesDirectoryRelativeDirectoryPaths.Instance.SolutionDirectory);
 
@@ -44,7 +44,7 @@ namespace R5T.F0026
 
             var projectFileName = F0052.ProjectFileNameOperator.Instance.GetProjectFileName_FromProjectName(projectName);
 
-            var projectFilePath = F0002.PathOperator.Instance.GetDirectoryPath(
+            var projectFilePath = F0002.PathOperator.Instance.Get_DirectoryPath(
                 projectDirectoryPath,
                 projectFileName);
 
@@ -61,7 +61,7 @@ namespace R5T.F0026
 
             var siblingProjectFileName = F0052.ProjectFileNameOperator.Instance.GetProjectFileName_FromProjectName(siblingProjectName);
 
-            var siblingProjectFilePath = F0002.PathOperator.Instance.GetDirectoryPath(
+            var siblingProjectFilePath = F0002.PathOperator.Instance.Get_DirectoryPath(
                 solutionDirectoryPath,
                 siblingProjectDirectoryName,
                 siblingProjectFileName);

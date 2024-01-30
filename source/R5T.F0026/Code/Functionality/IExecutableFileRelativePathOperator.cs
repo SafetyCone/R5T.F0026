@@ -12,7 +12,7 @@ namespace R5T.F0026
         {
 			var executableDirectoryPath = Instances.ExecutablePathOperator.Get_ExecutableDirectoryPath();
 
-			var filesDirectoryPath = Instances.PathOperator.GetDirectoryPath(
+			var filesDirectoryPath = Instances.PathOperator.Get_DirectoryPath(
 				executableDirectoryPath,
 				Instances.DirectoryNames.Files);
 
@@ -23,7 +23,7 @@ namespace R5T.F0026
         {
 			var filesDirectoryPath = this.GetFilesDirectoryPath();
 
-			var filePath = Instances.PathOperator.GetFilePath(
+			var filePath = Instances.PathOperator.Get_FilePath(
 				filesDirectoryPath,
 				fileName);
 
