@@ -10,7 +10,7 @@ namespace R5T.F0026
     {
         public string GetOutputAssembliesDirectoryPath(string outputAssemblyFilePath)
         {
-            var outputAssembliesDirectoryPath = F0000.PathOperator.Instance.Get_ParentDirectoryPath_ForFile(outputAssemblyFilePath);
+            var outputAssembliesDirectoryPath = Instances.PathOperator.Get_ParentDirectoryPath_ForFile(outputAssemblyFilePath);
             return outputAssembliesDirectoryPath;
         }
 
@@ -18,7 +18,7 @@ namespace R5T.F0026
         {
             var outputAssembliesDirectoryPath = this.GetOutputAssembliesDirectoryPath(outputAssemblyFilePath);
 
-            var projectDirectoryPath = F0002.PathOperator.Instance.Get_DirectoryPath(
+            var projectDirectoryPath = Instances.PathOperator.Get_DirectoryPath(
                 outputAssembliesDirectoryPath,
                 OutputAssembliesDirectoryRelativeDirectoryPaths.Instance.ProjectDirectory);
             
@@ -29,7 +29,7 @@ namespace R5T.F0026
         {
             var outputAssembliesDirectoryPath = this.GetOutputAssembliesDirectoryPath(outputAssemblyFilePath);
 
-            var solutionDirectoryPath = F0002.PathOperator.Instance.Get_DirectoryPath(
+            var solutionDirectoryPath = Instances.PathOperator.Get_DirectoryPath(
                 outputAssembliesDirectoryPath,
                 OutputAssembliesDirectoryRelativeDirectoryPaths.Instance.SolutionDirectory);
 
@@ -42,9 +42,9 @@ namespace R5T.F0026
         {
             var projectDirectoryPath = this.GetProjectDirectoryPath(outputAssemblyFilePath);
 
-            var projectFileName = F0052.ProjectFileNameOperator.Instance.GetProjectFileName_FromProjectName(projectName);
+            var projectFileName = F0052.ProjectFileNameOperator.Instance.Get_ProjectFileName_FromProjectName(projectName);
 
-            var projectFilePath = F0002.PathOperator.Instance.Get_DirectoryPath(
+            var projectFilePath = Instances.PathOperator.Get_DirectoryPath(
                 projectDirectoryPath,
                 projectFileName);
 
@@ -59,9 +59,9 @@ namespace R5T.F0026
 
             var siblingProjectDirectoryName = F0052.ProjectDirectoryNameOperator.Instance.GetProjectDirectoryName_FromProjectName(siblingProjectName);
 
-            var siblingProjectFileName = F0052.ProjectFileNameOperator.Instance.GetProjectFileName_FromProjectName(siblingProjectName);
+            var siblingProjectFileName = F0052.ProjectFileNameOperator.Instance.Get_ProjectFileName_FromProjectName(siblingProjectName);
 
-            var siblingProjectFilePath = F0002.PathOperator.Instance.Get_DirectoryPath(
+            var siblingProjectFilePath = Instances.PathOperator.Get_DirectoryPath(
                 solutionDirectoryPath,
                 siblingProjectDirectoryName,
                 siblingProjectFileName);
@@ -73,7 +73,7 @@ namespace R5T.F0026
             // In case the project name is not conventional based on the output assembly file name.
             string executableProjectName)
         {
-            var executableAssemblyFilePath = F0000.ExecutablePathOperator.Instance.Get_ExecutableFilePath();
+            var executableAssemblyFilePath = Instances.ExecutablePathOperator.Get_ExecutableFilePath();
 
             var executableProjectFilePath = this.GetProjectFilePath(
                 executableAssemblyFilePath,
@@ -85,7 +85,7 @@ namespace R5T.F0026
         public string GetExecutableSiblingProjectFilePath(
             string siblingProjectName)
         {
-            var executableAssemblyFilePath = F0000.ExecutablePathOperator.Instance.Get_ExecutableFilePath();
+            var executableAssemblyFilePath = Instances.ExecutablePathOperator.Get_ExecutableFilePath();
 
             var executableSiblingProjectFilePath = this.GetSiblingProjectFilePath(
                 executableAssemblyFilePath,
