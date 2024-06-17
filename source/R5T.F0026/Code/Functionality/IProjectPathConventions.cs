@@ -18,9 +18,9 @@ namespace R5T.F0026
         {
             var outputAssembliesDirectoryPath = this.GetOutputAssembliesDirectoryPath(outputAssemblyFilePath);
 
-            var projectDirectoryPath = Instances.PathOperator.Get_DirectoryPath(
+            var projectDirectoryPath = Instances.PathOperator.Get_DirectoryPath_Resolved(
                 outputAssembliesDirectoryPath,
-                OutputAssembliesDirectoryRelativeDirectoryPaths.Instance.ProjectDirectory);
+                Instances.OutputAssembliesDirectoryRelativeDirectoryPaths.ProjectDirectory);
             
             return projectDirectoryPath;
         }
@@ -29,9 +29,9 @@ namespace R5T.F0026
         {
             var outputAssembliesDirectoryPath = this.GetOutputAssembliesDirectoryPath(outputAssemblyFilePath);
 
-            var solutionDirectoryPath = Instances.PathOperator.Get_DirectoryPath(
+            var solutionDirectoryPath = Instances.PathOperator.Get_DirectoryPath_Resolved(
                 outputAssembliesDirectoryPath,
-                OutputAssembliesDirectoryRelativeDirectoryPaths.Instance.SolutionDirectory);
+                Instances.OutputAssembliesDirectoryRelativeDirectoryPaths.SolutionDirectory);
 
             return solutionDirectoryPath;
         }
@@ -42,7 +42,7 @@ namespace R5T.F0026
         {
             var projectDirectoryPath = this.GetProjectDirectoryPath(outputAssemblyFilePath);
 
-            var projectFileName = F0052.ProjectFileNameOperator.Instance.Get_ProjectFileName_FromProjectName(projectName);
+            var projectFileName = Instances.ProjectFileNameOperator.Get_ProjectFileName_FromProjectName(projectName);
 
             var projectFilePath = Instances.PathOperator.Get_DirectoryPath(
                 projectDirectoryPath,
@@ -57,11 +57,11 @@ namespace R5T.F0026
         {
             var solutionDirectoryPath = this.GetSolutionDirectoryPath(outputAssemblyFilePath);
 
-            var siblingProjectDirectoryName = F0052.ProjectDirectoryNameOperator.Instance.GetProjectDirectoryName_FromProjectName(siblingProjectName);
+            var siblingProjectDirectoryName = Instances.ProjectDirectoryNameOperator.GetProjectDirectoryName_FromProjectName(siblingProjectName);
 
-            var siblingProjectFileName = F0052.ProjectFileNameOperator.Instance.Get_ProjectFileName_FromProjectName(siblingProjectName);
+            var siblingProjectFileName = Instances.ProjectFileNameOperator.Get_ProjectFileName_FromProjectName(siblingProjectName);
 
-            var siblingProjectFilePath = Instances.PathOperator.Get_DirectoryPath(
+            var siblingProjectFilePath = Instances.PathOperator.Get_FilePath(
                 solutionDirectoryPath,
                 siblingProjectDirectoryName,
                 siblingProjectFileName);
